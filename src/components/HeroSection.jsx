@@ -17,7 +17,7 @@ const HeroSection = () => {
 
         {/* second hero section */}
         <div className='flex flex-col md:flex-row items-center justify-between w-full mt-10 '>
-            <div className='bg-red-200 sm:max-w-[50%] mb-5 w-full'>
+            <div className=' sm:max-w-[50%] mb-5 w-full'>
                 <img src={batteryImage} alt="battery image"  />
             </div>
             <div className='md:max-w-[50%]'>
