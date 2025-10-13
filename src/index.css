@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background-primary: rgb(0, 0, 0);
+  --color-preorder:rgb(107, 255, 61); 
+
+
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-pop: 'Poppins',sans-serif;
+
+}

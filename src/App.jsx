@@ -1,5 +1,7 @@
 
 import './App.css'
+import FeatureSection from './components/FeatureSection'
+import HeroSection from './components/HeroSection'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -8,6 +10,8 @@ function App() {
   return (
     <>
       <Navbar/>
+      <HeroSection/>
+      <FeatureSection/>
     </>
   )
 }
