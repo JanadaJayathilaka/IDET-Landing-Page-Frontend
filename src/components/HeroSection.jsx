@@ -2,7 +2,12 @@ import React from 'react'
 import heroImage from '../assets/hero-image.jpg'
 import batteryImage from '../assets/battery-image.jpg'
 import thirdHero from '../assets/thirdhero.png'
+import sec41 from '../assets/sec4-i1.png' 
+import sec42 from '../assets/sec4-2.png'  
+import sec43 from '../assets/sec4-3.png'  
+import sec51 from '../assets/sec51.jpg'
 import { HeartPulse,Activity, Wind,Bed} from 'lucide-react'
+import WatchCard from './WatchCard'
 
 
 const HeroSection = () => {
@@ -101,12 +106,36 @@ const HeroSection = () => {
             </div>
         </div>
 
-        <div className='mt-30 flex text-white'>
-            <h1 className='text-3xl w-[50%]'>Designed for Versatility performance and</h1>
-            <p className='w-[50%] text-gray-300'>Find strength in numbers. Making progress as an athlete requires accurate data and insights. Updates to the workout app like new metrics and views give you all the information you need to be and best your best</p>
+        <div className='mt-20 sm:mt-30 flex text-white'>
+            <h1 className=' text-xl sm:text-3xl w-[50%] '>Designed for Versatility performance and</h1>
+            <p className='text-[13px] sm:text-[15px] w-[50%] text-gray-300'>Find strength in numbers. Making progress as an athlete requires accurate data and insights. Updates to the workout app like new metrics and views give you all the information you need to be and best your best</p>
         </div>
 
+        {/* 4th hero section  */}
+        <div className='flex flex-col md:flex-row items-center justify-between mt-10 text-white '>
+            <WatchCard img={sec41} title="Alphine Loop" price="$ 1,900" description1="Customized your best performance, this" description2="cutting edge Storm Connected Watch " description3="pushes the boundaries of technology"/>
+            <WatchCard img={sec42} title="Ocean Band" price="$ 1,999" description1="A new dimension in watchmaking,this cutting" description2="edge band is designed for the adventurous" description3="at heart."/>
+            <WatchCard img={sec43} title="Trail Loop" price="$ 2,075" description1="Built for the outdoors, this band is" description2="durable and ready for any adventure." description3="Connected watch s as luxurious as ever"/>
+        </div>
 
+        {/* 5th section  */}
+        <div className='text-white flex mt-30 justify-between'>
+            <div className='w-[50%]'>
+                <h1 className='text-5xl ml-8'>The last delivery you <br /> need to stay home for:</h1>
+                <div className='flex items-center ml-8'>
+                    <img src={sec51} alt="" className='mt-7 w-[20%] rounded'/>  
+                    <p className='mt-7 items-center ml-5'>Storm Watch - The first smart watch <br />
+                    <span className='text-[12px]'>Worry free parcel deliveries</span>
+                    </p>
+
+                </div>
+                
+            </div>
+            <div>
+                sdda
+            </div>
+           
+        </div>
     </div>
   )
 }
