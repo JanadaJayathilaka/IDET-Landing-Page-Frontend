@@ -6,6 +6,7 @@ import sec41 from "../assets/sec4-i1.png";
 import sec42 from "../assets/sec4-2.png";
 import sec43 from "../assets/sec4-3.png";
 import sec51 from "../assets/sec51.jpg";
+import sec6 from "../assets/sec6.webp";
 import { HeartPulse, Activity, Wind, Bed, CircleCheck } from "lucide-react";
 import WatchCard from "./WatchCard";
 
@@ -21,7 +22,7 @@ const HeroSection = () => {
           STORM PRO
         </h1>
       </div>
-      <img src={heroImage} alt="hero image" />
+      <img src={heroImage} alt="hero image" className="w-full h-[200px] sm:h-auto" />
 
       {/* second hero section */}
       <div className="flex flex-col md:flex-row items-center justify-between w-full mt-10 ">
@@ -169,9 +170,9 @@ const HeroSection = () => {
       </div>
 
       {/* 5th section  */}
-      <div className="text-white flex mt-30 justify-between ml-10">
-        <div className="w-[50%]">
-          <h1 className="text-5xl ml-8">
+      <div className="text-white flex mt-30 justify-between lg::ml-10 ml-0">
+        <div className="md:w-[50%] w-full">
+          <h1 className="md:text-3xl ml-8 text-[20px]">
             The last delivery you <br /> need to stay home for:
           </h1>
           <div className="flex items-center ml-8">
@@ -181,7 +182,7 @@ const HeroSection = () => {
               <span className="text-[12px]">Worry free parcel deliveries</span>
             </p>
           </div>
-          <div className="mt-4 ml-8 ">
+          <div className="mt-6 md:mt-10 lg:mt-15 ml-8 md:text-[15px] text-[12px] lg:text-xl xl:text-xl">
             <p className="flex gap-2 md:mt-2 lg:mt-4">
               <span>
                 <CircleCheck className="text-preorder" />
@@ -194,19 +195,19 @@ const HeroSection = () => {
               </span>
               Pick up your items easily and safely
             </p>
-            <p className="flex gap-2 md:mt-2 lg:mt-4">
+            <p className="flex gap-2 mt-3 md:mt-2 lg:mt-4">
               <span>
                 <CircleCheck className="text-preorder" />
               </span>
               Get 3% Daily Cash back. All up front
             </p>
-            <p className="flex gap-2 md:mt-2 lg:mt-4">
+            <p className="flex gap-2 mt-3 md:mt-2 lg:mt-4">
               <span>
                 <CircleCheck className="text-preorder" />
               </span>
               Cancel anytime, money back
             </p>
-            <p className="flex gap-2 md:mt-2 lg:mt-4">
+            <p className="flex gap-2  mt-3 md:mt-2 lg:mt-4">
               <span>
                 <CircleCheck className="text-preorder" />
               </span>
@@ -218,8 +219,19 @@ const HeroSection = () => {
           </div>
         </div>
         <div>
-          <img src={sec43} alt="" />
+          <img src={sec43} alt="" className="lg:mr-50 hidden md:flex " />
         </div>
+      </div>
+
+      {/* get your smart watch section  */}
+      <div className="relative w-full -p-8">
+        <img src={sec6} alt="" className="mt-10 relative opacity-60 w-full h-45"/>
+        <div className="absolute top-1/4 lg:left-1/7 xl:left-1/6 md:left-1/5 left-1/7 sm: text-center">
+            <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-semibold">Get your smart Watch Now</h1>
+            <p className="mt-2 md:mt-4 text-[10px] text-white">Get a 3% cashback, only for Pre-order</p>
+            <button className="bg-preorder  mt-2 px-3 py-2 md:mt-10 font-semibold">Pre Order</button>
+        </div>
+        
       </div>
     </div>
   );
