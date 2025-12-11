@@ -9,6 +9,7 @@ import sec51 from "../assets/sec51.jpg";
 import sec6 from "../assets/sec6.webp";
 import { HeartPulse, Activity, Wind, Bed, CircleCheck } from "lucide-react";
 import WatchCard from "./WatchCard";
+import CustomerCreate from "./CustomerCreate";
 
 const HeroSection = () => {
   return (
@@ -22,7 +23,11 @@ const HeroSection = () => {
           STORM PRO
         </h1>
       </div>
-      <img src={heroImage} alt="hero image" className="w-full h-[200px] sm:h-auto" />
+      <img
+        src={heroImage}
+        alt="hero image"
+        className="w-full h-[200px] sm:h-auto"
+      />
 
       {/* second hero section */}
       <div className="flex flex-col md:flex-row items-center justify-between w-full mt-10 ">
@@ -224,15 +229,25 @@ const HeroSection = () => {
       </div>
 
       {/* get your smart watch section  */}
-      <div className="relative w-full -p-8">
-        <img src={sec6} alt="" className="mt-10 relative opacity-60 w-full h-45"/>
+      <div className="relative w-full p-8">
+        <img
+          src={sec6}
+          alt=""
+          className="mt-10 relative opacity-60 w-full h-45"
+        />
         <div className="absolute top-1/4 lg:left-1/7 xl:left-1/6 md:left-1/5 left-1/7 sm: text-center">
-            <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-semibold">Get your smart Watch Now</h1>
-            <p className="mt-2 md:mt-4 text-[10px] text-white">Get a 3% cashback, only for Pre-order</p>
-            <button className="bg-preorder  mt-2 px-3 py-2 md:mt-10 font-semibold">Pre Order</button>
+          <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-semibold">
+            Get your smart Watch Now
+          </h1>
+          <p className="mt-2 md:mt-4 text-[10px] text-white">
+            Get a 3% cashback, only for Pre-order
+          </p>
+          <button className="bg-preorder  mt-2 px-3 py-2 md:mt-10 font-semibold">
+            Pre Order
+          </button>
         </div>
-        
       </div>
+      <CustomerCreate />
     </div>
   );
 };
