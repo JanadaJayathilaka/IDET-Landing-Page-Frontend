@@ -10,6 +10,7 @@ import sec6 from "../assets/sec6.webp";
 import { HeartPulse, Activity, Wind, Bed, CircleCheck } from "lucide-react";
 import WatchCard from "./WatchCard";
 import CustomerCreate from "./CustomerCreate";
+import LoginForm from "./CustomerLogin";
 
 const HeroSection = () => {
   return (
@@ -247,7 +248,8 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
-      <CustomerCreate />
+      <CustomerCreate isVisible={false} />
+      <LoginForm />
     </div>
   );
 };
