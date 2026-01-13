@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import heroImage from "../assets/hero-image.jpg";
 import batteryImage from "../assets/battery-image.jpg";
 import thirdHero from "../assets/thirdhero.png";
@@ -11,8 +11,31 @@ import { HeartPulse, Activity, Wind, Bed, CircleCheck } from "lucide-react";
 import WatchCard from "./WatchCard";
 import CustomerCreate from "./CustomerCreate";
 import LoginForm from "./CustomerLogin";
+import WatchCreate from "./WatchCreate";
+import axios from "axios";
+import { apiConfig } from "../api/apiConfig";
+import { useState } from "react";
 
 const HeroSection = () => {
+  const [watches, setWatches] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchWatches = async () => {
+    try {
+      const response = await axios.get(`${apiConfig.getAllWatches}`);
+      console.log("Watches:", response.data);
+      setWatches(response.data.data);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchWatches();
+  }, []);
   return (
     <div className="p-8 md:p-15 bg-background-primary flex flex-col justify-center ">
       {/* first hero section */}
@@ -248,8 +271,46 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
+
+      {/*watch card */}
+      {/* <div>
+        <WatchCard
+          img={sec42}
+          title="Ocean Band"
+          price="$ 1,999"
+          description1="A new dimension in watchmaking,this cutting"
+          description2="edge band is designed for the adventurous"
+          description3="at heart."
+        />
+      </div> */}
+      <div className="p-8 md:p-15 bg-background-primary flex flex-col justify-center ">
+        <div className="flex flex-col md:flex-row items-center justify-between mt-10 text-white gap-4">
+          {loading ? (
+            <p className="text-white">Loading watches...</p>
+          ) : error ? (
+            <p className="text-red-500">Error: {error}</p>
+          ) : watches.length > 0 ? (
+            watches.map((watch) => (
+              <WatchCard
+                key={watch._id}
+                img={watch.image || sec41}
+                title={watch.brand}
+                price={`$ ${watch.price}`}
+                description1={watch.modelNumber}
+                description2={watch.type}
+                description3="Connected watch as luxurious as ever"
+              />
+            ))
+          ) : (
+            <p className="text-white">No watches available</p>
+          )}
+        </div>
+      </div>
+
+      {/* Customer Create and Login Form */}
       <CustomerCreate isVisible={false} />
       <LoginForm />
+      <WatchCreate onWatchCreated={fetchWatches} />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { apiConfig } from "../api/apiConfig";
 
 ////////validation Fields///////////
 const LoginSchema = Yup.object({
@@ -12,15 +13,16 @@ const LoginSchema = Yup.object({
 ///////Handle Form submit ///////////
 const handleLoginUser = async (values, actions) => {
   try {
-    const { data } = await axios.post(
-      "http://localhost:5000/api/auth/client/login",
-      values
-    );
+    // const { data } = await axios.post(`${apiConfig.clientLogin}`, values);
+    const { data } = await axios.post(`${apiConfig.clientLogin}`, values);
 
     ////save token to local storage ////
     localStorage.setItem("token", data.token);
+
     actions.setStatus({ success: "Customer logged in successfully!" });
-    actions.resetForm();
+    setTimeout(() => {
+      actions.resetForm();
+    }, 2000);
   } catch (error) {
     actions.setStatus({
       error: error.response?.data?.message || "Error logging in customer",
